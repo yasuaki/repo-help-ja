@@ -1,0 +1,16 @@
+
+Summary
+-------
+Start a new branch for development
+
+Usage: repo start <newbranchname> [--all | <project>...]
+
+Options:
+  -h, --help  show this help message and exit
+  --all       begin branch in all projects
+
+Description
+-----------
+'repo start' begins a new branch of development, starting from the
+revision specified in the manifest.
+

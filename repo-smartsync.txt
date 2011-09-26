@@ -1,0 +1,23 @@
+
+Summary
+-------
+Update working tree to the latest known good revision
+
+Usage: repo smartsync [<project>...]
+
+Options:
+  -h, --help            show this help message and exit
+  -f, --force-broken    continue sync even if a project fails to sync
+  -l, --local-only      only update working tree, don't fetch
+  -n, --network-only    fetch only, don't update working tree
+  -d, --detach          detach projects back to manifest revision
+  -q, --quiet           be more quiet
+  -j JOBS, --jobs=JOBS  number of projects to fetch simultaneously
+
+  repo Version options:
+    --no-repo-verify    do not verify repo source code
+
+Description
+-----------
+The 'repo smartsync' command is a shortcut for sync -s.
+

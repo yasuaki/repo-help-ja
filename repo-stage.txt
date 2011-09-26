@@ -1,0 +1,15 @@
+
+Summary
+-------
+Stage file(s) for commit
+
+Usage: repo stage -i [<project>...]
+
+Options:
+  -h, --help         show this help message and exit
+  -i, --interactive  use interactive staging
+
+Description
+-----------
+The 'repo stage' command stages files to prepare the next commit.
+

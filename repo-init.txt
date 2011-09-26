@@ -1,0 +1,57 @@
+
+Summary
+-------
+Initialize repo in the current directory
+
+Usage: repo init [options]
+
+Options:
+  -h, --help            show this help message and exit
+
+  Logging options:
+    -q, --quiet         be quiet
+
+  Manifest options:
+    -u URL, --manifest-url=URL
+                        manifest repository location
+    -b REVISION, --manifest-branch=REVISION
+                        manifest branch or revision
+    -m NAME.xml, --manifest-name=NAME.xml
+                        initial manifest file
+    --mirror            mirror the forrest
+    --reference=DIR     location of mirror directory
+    --depth=DEPTH       create a shallow clone with given depth; see git clone
+
+  repo Version options:
+    --repo-url=URL      repo repository location
+    --repo-branch=REVISION
+                        repo branch or revision
+    --no-repo-verify    do not verify repo source code
+
+Description
+-----------
+The 'repo init' command is run once to install and initialize repo. The
+latest repo source code and manifest collection is downloaded from the
+server and is installed in the .repo/ directory in the current working
+directory.
+
+The optional -b argument can be used to select the manifest branch to
+checkout and use. If no branch is specified, master is assumed.
+
+The optional -m argument can be used to specify an alternate manifest to
+be used. If no manifest is specified, the manifest default.xml will be
+used.
+
+The --reference option can be used to point to a directory that has the
+content of a --mirror sync. This will make the working directory use as
+much data as possible from the local reference directory when fetching
+from the server. This will make the sync go a lot faster by reducing
+data traffic on the network.
+
+Switching Manifest Branches
+---------------------------
+To switch to another manifest branch, `repo init -b otherbranch` may be
+used in an existing client. However, as this only updates the manifest,
+a subsequent `repo sync` (or `repo sync -d`) is necessary to update the
+working directory files.
+

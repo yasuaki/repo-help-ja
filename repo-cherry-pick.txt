@@ -1,0 +1,16 @@
+
+Summary
+-------
+Cherry-pick a change.
+
+Usage: repo cherry-pick <sha1>
+
+Options:
+  -h, --help  show this help message and exit
+
+Description
+-----------
+'repo cherry-pick' cherry-picks a change from one branch to another. The
+change id will be updated, and a reference to the old change id will be
+added.
+

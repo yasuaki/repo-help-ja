@@ -1,0 +1,17 @@
+
+Summary
+-------
+List projects and their associated directories
+
+Usage: repo list [<project>...]
+
+Options:
+  -h, --help  show this help message and exit
+
+Description
+-----------
+List all projects; pass '.' to list the project for the cwd.
+
+This is similar to running: repo forall -c 'echo "$REPO_PATH :
+$REPO_PROJECT"'.
+

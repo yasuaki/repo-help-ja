@@ -1,0 +1,21 @@
+
+Summary
+-------
+Update repo to the latest version
+
+Usage: repo selfupdate
+
+Options:
+  -h, --help          show this help message and exit
+
+  repo Version options:
+    --no-repo-verify  do not verify repo source code
+
+Description
+-----------
+The 'repo selfupdate' command upgrades repo to the latest version, if a
+newer version is available.
+
+Normally this is done automatically by 'repo sync' and does not need to
+be performed by an end-user.
+

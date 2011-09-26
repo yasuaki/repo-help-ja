@@ -1,0 +1,9 @@
+
+Summary
+-------
+Prune (delete) already merged topics
+
+Usage: repo prune [<project>...]
+
+Options:
+  -h, --help  show this help message and exit

@@ -1,0 +1,19 @@
+
+Summary
+-------
+Checkout a branch for development
+
+Usage: repo checkout <branchname> [<project>...]
+
+Options:
+  -h, --help  show this help message and exit
+
+Description
+-----------
+The 'repo checkout' command checks out an existing branch that was
+previously created by 'repo start'.
+
+The command is equivalent to:
+
+  repo forall [<project>...] -c git checkout <branchname>
+

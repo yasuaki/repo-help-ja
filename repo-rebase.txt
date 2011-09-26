@@ -1,0 +1,23 @@
+
+Summary
+-------
+Rebase local branches on upstream branch
+
+Usage: repo rebase {[<project>...] | -i <project>...}
+
+Options:
+  -h, --help          show this help message and exit
+  -i, --interactive   interactive rebase (single project only)
+  -f, --force-rebase  Pass --force-rebase to git rebase
+  --no-ff             Pass --no-ff to git rebase
+  -q, --quiet         Pass --quiet to git rebase
+  --autosquash        Pass --autosquash to git rebase
+  --whitespace=WS     Pass --whitespace to git rebase
+
+Description
+-----------
+'repo rebase' uses git rebase to move local changes in the current topic
+branch to the HEAD of the upstream history, useful when you have made
+commits in a topic branch but need to incorporate new upstream changes
+"underneath" them.
+

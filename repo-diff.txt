@@ -1,0 +1,9 @@
+
+Summary
+-------
+Show changes between commit and working tree
+
+Usage: repo diff [<project>...]
+
+Options:
+  -h, --help  show this help message and exit

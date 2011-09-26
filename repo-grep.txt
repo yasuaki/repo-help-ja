@@ -1,0 +1,71 @@
+
+Summary
+-------
+Print lines matching a pattern
+
+Usage: repo grep {pattern | -e pattern} [<project>...]
+
+Options:
+  -h, --help            show this help message and exit
+
+  Sources:
+    --cached            Search the index, instead of the work tree
+    -r TREEish, --revision=TREEish
+                        Search TREEish, instead of the work tree
+
+  Pattern:
+    -e PATTERN          Pattern to search for
+    -i, --ignore-case   Ignore case differences
+    -a, --text          Process binary files as if they were text
+    -I                  Don't match the pattern in binary files
+    -w, --word-regexp   Match the pattern only at word boundaries
+    -v, --invert-match  Select non-matching lines
+    -G, --basic-regexp  Use POSIX basic regexp for patterns (default)
+    -E, --extended-regexp
+                        Use POSIX extended regexp for patterns
+    -F, --fixed-strings
+                        Use fixed strings (not regexp) for pattern
+
+  Pattern Grouping:
+    --all-match         Limit match to lines that have all patterns
+    --and, --or, --not  Boolean operators to combine patterns
+    -(, -)              Boolean operator grouping
+
+  Output:
+    -n                  Prefix the line number to matching lines
+    -C CONTEXT          Show CONTEXT lines around match
+    -B CONTEXT          Show CONTEXT lines before match
+    -A CONTEXT          Show CONTEXT lines after match
+    -l, --name-only, --files-with-matches
+                        Show only file names containing matching lines
+    -L, --files-without-match
+                        Show only file names not containing matching lines
+
+Description
+-----------
+Search for the specified patterns in all project files.
+
+Boolean Options
+---------------
+The following options can appear as often as necessary to express the
+pattern to locate:
+
+ -e PATTERN
+ --and, --or, --not, -(, -)
+
+Further, the -r/--revision option may be specified multiple times in
+order to scan multiple trees. If the same file matches in more than one
+tree, only the first result is reported, prefixed by the revision name
+it was found under.
+
+Examples
+--------
+Look for a line that has '#define' and either 'MAX_PATH or 'PATH_MAX':
+
+  repo grep -e '#define' --and -\( -e MAX_PATH -e PATH_MAX \)
+
+Look for a line that has 'NODE' or 'Unexpected' in files that contain a
+line that matches both expressions:
+
+  repo grep --all-match -e NODE -e Unexpected
+

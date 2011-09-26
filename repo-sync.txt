@@ -1,0 +1,72 @@
+
+Summary
+-------
+Update working tree to the latest revision
+
+Usage: repo sync [<project>...]
+
+Options:
+  -h, --help            show this help message and exit
+  -f, --force-broken    continue sync even if a project fails to sync
+  -l, --local-only      only update working tree, don't fetch
+  -n, --network-only    fetch only, don't update working tree
+  -d, --detach          detach projects back to manifest revision
+  -q, --quiet           be more quiet
+  -j JOBS, --jobs=JOBS  number of projects to fetch simultaneously
+  -s, --smart-sync      smart sync using manifest from a known good build
+
+  repo Version options:
+    --no-repo-verify    do not verify repo source code
+
+Description
+-----------
+The 'repo sync' command synchronizes local project directories with the
+remote repositories specified in the manifest. If a local project does
+not yet exist, it will clone a new local directory from the remote
+repository and set up tracking branches as specified in the manifest. If
+the local project already exists, 'repo sync' will update the remote
+branches and rebase any new local changes on top of the new remote
+changes.
+
+'repo sync' will synchronize all projects listed at the command line.
+Projects can be specified either by name, or by a relative or absolute
+path to the project's local directory. If no projects are specified,
+'repo sync' will synchronize all projects listed in the manifest.
+
+The -d/--detach option can be used to switch specified projects back to
+the manifest revision. This option is especially helpful if the project
+is currently on a topic branch, but the manifest revision is temporarily
+needed.
+
+The -s/--smart-sync option can be used to sync to a known good build as
+specified by the manifest-server element in the current manifest.
+
+The -f/--force-broken option can be used to proceed with syncing other
+projects if a project sync fails.
+
+SSH Connections
+---------------
+If at least one project remote URL uses an SSH connection (ssh://,
+git+ssh://, or user@host:path syntax) repo will automatically enable the
+SSH ControlMaster option when connecting to that host. This feature
+permits other projects in the same 'repo sync' session to reuse the same
+SSH tunnel, saving connection setup overheads.
+
+To disable this behavior on UNIX platforms, set the GIT_SSH environment
+variable to 'ssh'. For example:
+
+  export GIT_SSH=ssh
+  repo sync
+
+  Compatibility
+  ~~~~~~~~~~~~~
+This feature is automatically disabled on Windows, due to the lack of
+UNIX domain socket support.
+
+This feature is not compatible with url.insteadof rewrites in the user's
+~/.gitconfig. 'repo sync' is currently not able to perform the rewrite
+early enough to establish the ControlMaster tunnel.
+
+If the remote SSH daemon is Gerrit Code Review, version 2.0.10 or later
+is required to fix a server side protocol bug.
+

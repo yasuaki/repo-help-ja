@@ -1,0 +1,15 @@
+
+Summary
+-------
+Download and checkout a change
+
+Usage: repo download {project change[/patchset]}...
+
+Options:
+  -h, --help  show this help message and exit
+
+Description
+-----------
+The 'repo download' command downloads a change from the review system
+and makes it available in your project's local working directory.
+

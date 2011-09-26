@@ -1,0 +1,14 @@
+
+Summary
+-------
+Permanently abandon a development branch
+
+Usage: repo abandon <branchname> [<project>...]
+
+This subcommand permanently abandons a development branch by
+deleting it (and all its history) from your local repository.
+
+It is equivalent to "git branch -D <branchname>".
+
+Options:
+  -h, --help  show this help message and exit
